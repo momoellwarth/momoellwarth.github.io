@@ -57,6 +57,7 @@ main {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  position: relative;
 }
 
 h1 {
@@ -76,15 +77,17 @@ h1 {
   line-height: 1.55;
 }
 
-
     .circle-nav {
-      margin-top: 36px;
+      position: absolute;
+      right: 64px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 26px;
       align-items: center;
     }
-
+    
     .circle-link {
       width: 180px;
       height: 180px;
