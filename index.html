@@ -20,16 +20,16 @@
     }
 
     body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(88, 28, 135, 0.45), transparent 38%),
-    radial-gradient(circle at 80% 75%, rgba(20, 83, 45, 0.50), transparent 42%),
-    radial-gradient(circle at 50% 50%, rgba(49, 46, 129, 0.25), transparent 55%),
-    #07130f;
-  color: var(--fg);
-}
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(88, 28, 135, 0.45), transparent 38%),
+        radial-gradient(circle at 80% 75%, rgba(20, 83, 45, 0.50), transparent 42%),
+        radial-gradient(circle at 50% 50%, rgba(49, 46, 129, 0.25), transparent 55%),
+        #07130f;
+      color: var(--fg);
+    }
 
 body::before {
   content: "";
@@ -60,85 +60,103 @@ main {
   position: relative;
 }
 
-h1 {
-  margin: 0;
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 300;
-  letter-spacing: -0.045em;
-  line-height: 1.05;
-}
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 300;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
 
-.tagline {
-  margin-top: 18px;
-  max-width: 650px;
-  color: var(--muted);
-  font-size: clamp(17px, 2.1vw, 21px);
-  font-weight: 300;
-  line-height: 1.55;
-}
-
-    .circle-nav {
-      position: absolute;
-      right: 64px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-      align-items: center;
+    .tagline {
+      margin-top: 18px;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.1vw, 21px);
+      font-weight: 300;
+      line-height: 1.55;
     }
     
-    .circle-link {
-      width: 180px;
-      height: 180px;
+    .orbit-nav {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      width: 330px;
+      height: 330px;
+      transform: translateY(-50%);
+    }
+
+    .orbit-link {
+      position: absolute;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
       overflow: hidden;
       text-decoration: none;
       color: white;
-      border: 1px solid rgba(255,255,255,.25);
-      box-shadow: 0 12px 35px rgba(0,0,0,.35);
-      transition: transform .2s ease, box-shadow .2s ease;
-      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 14px 38px rgba(0,0,0,.35);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    
+    .orbit-link:hover {
+      transform: scale(1.04);
+      box-shadow: 0 18px 48px rgba(0,0,0,.45);
+      border-color: rgba(255,255,255,.38);
     }
 
-    .circle-link:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+    .research-sun {
+      width: 190px;
+      height: 190px;
+      left: 25px;
+      top: 70px;
+      background:
+        radial-gradient(circle at 35% 30%, #fff7ad 0%, #fbbf24 34%, #ea580c 68%, #7f1d1d 100%);
+    }
+    
+    .planet {
+      width: 118px;
+      height: 118px;
     }
 
-    .circle-link img {
+    .about-planet {
+      right: 0;
+      top: 22px;
+    }
+    
+    .orbit-link img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
     }
 
-    .circle-link::after {
+    .orbit-link::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(15,23,42,.35);
+      background: rgba(15,23,42,.28);
       z-index: 1;
     }
 
-    .circle-link span {
-      position: relative;
-      z-index: 2;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,.6);
+    .research-sun::after {
+      background: rgba(15,23,42,.10);
     }
 
-    .sun-fallback {
-      background:
-        radial-gradient(circle, #fff7ad 0%, #fbbf24 35%, #ea580c 68%, #7f1d1d 100%);
+    .orbit-link span {
+      position: relative;
+      z-index: 2;
+      font-weight: 300;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 8px rgba(0,0,0,.65);
+    }
+
+    .research-sun span {
+      font-size: 1.2rem;
     }
 
     .social-links {
@@ -191,18 +209,17 @@ h1 {
         and solar magnetic activity.
       </p>
 
-      <nav class="circle-nav" aria-label="Main navigation">
-        <a class="circle-link sun-fallback" href="research.html">
-          <!-- If you have a solar image, upload it as sun.jpg and uncomment this line: -->
-          <!-- <img src="sun.jpg" alt=""> -->
+      <nav class="orbit-nav" aria-label="Main navigation">
+        <a class="orbit-link research-sun" href="research.html">
           <span>Research</span>
         </a>
 
-        <a class="circle-link" href="about.html">
-          <img src="me.jpeg" alt="">
+        <a class="orbit-link planet about-planet" href="about.html">
+          <img src="profile.jpg" alt="">
           <span>About me</span>
         </a>
       </nav>
+      
 
       <div class="social-links">
         <a class="social-link" href="https://www.linkedin.com/in/momo-ellwarth-5681a82b5/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
